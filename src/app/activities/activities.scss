@@ -1,0 +1,17 @@
+.activities {
+    overflow: hidden;
+    background-color: beige;
+    .card {
+        background-color: #fff;
+        box-shadow: 1px 1px 1px gray;
+        padding: 5px;
+        margin: 5px;
+        img.card-img-top {
+            width: 100%;
+        }
+    }
+    .selectpicker {
+
+    	float:right;
+    }
+}

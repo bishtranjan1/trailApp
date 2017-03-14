@@ -1,0 +1,13 @@
+<section class="activities" ng-init="Activities.init()">
+  
+    <div class="col-sm-4 col-md-4" ng-if="data.thumbnail" ng-repeat="data in Activities.activitiesList">
+        <div class="card">
+            <img class="card-img-top" ng-src="{{data.thumbnail}}" alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">{{data.name}}</h4>
+                <p class="card-text">{{data.description}}</p>
+                <a href="#" class="btn btn-primary" ng-click="Activities.showAction(data.place_id)">Show Details</a>
+            </div>
+        </div>
+    </div>
+</section>

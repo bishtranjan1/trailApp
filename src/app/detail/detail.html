@@ -1,0 +1,19 @@
+<section  class="container" ng-init="Detail.init()">
+    <div class="col-sm-12 col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <div map-lazy-load="https://maps.google.com/maps/api/js?key=AIzaSyArniiXs_sBIqUcrxrHX9Z5amD-GMOIo5M">
+                    <ng-map center={{Detail.loc}} zoom="8"></ng-map>
+                </div>
+                <h4 class="card-title">{{Detail.activity.name}}</h4>
+
+                <span>{{Detail.activity.country}}</span>
+                <span>, {{Detail.activity.state}}</span>
+                <span>, {{Detail.activity.city}}</span>
+
+                <p class="card-text">Disription:  {{Detail.activity.activities[0].description}}</p>
+                <p class="card-text">Direction : {{Detail.activity.directions}}</p>
+            </div>
+        </div>
+    </div>
+</section>

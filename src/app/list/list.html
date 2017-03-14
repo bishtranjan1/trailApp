@@ -1,0 +1,30 @@
+<section class="list" ng-init="List.init()">
+    <input  class="filter" type="text" placeholder="Filter List" ng-model='filter'>
+    <table class="table table-striped table-responsive rwd-table">
+        <thead>
+            <tr>
+                <th>S No.</th>
+                <th>Name</th>
+                <th>Country</th>
+                <th>State</th>
+                <th>City</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-if="List.placesList" ng-repeat="data in List.placesList | filter:filter">
+                <td data-th="SNo">{{$index+1}} </td>
+                <td data-th="Date"> {{data.name}} </td>
+                <td data-th="Investment type">{{data.country}}</td>
+                <td data-th="Scheme">{{data.state}}</td>
+                <td data-th="Folio No">{{data.city}}</td>
+                
+                <td data-th="Action">
+                    <button class="btn" ng-click="List.showAction(data.unique_id)">Show Details</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    </div>
+</section>
