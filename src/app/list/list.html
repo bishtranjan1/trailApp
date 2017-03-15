@@ -1,6 +1,8 @@
 <section class="list" ng-init="List.init()">
-    <input  class="filter" type="text" placeholder="Filter List" ng-model='filter'>
-    <table class="table table-striped table-responsive rwd-table">
+    <div class="pull-right">
+        <input class="filter" type="text" placeholder="Filter List" ng-model='filter'>
+    </div>
+    <table class="table table-striped table-responsive rwd-table col-md-12">
         <thead>
             <tr>
                 <th>S No.</th>
@@ -12,19 +14,27 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-if="List.placesList" ng-repeat="data in List.placesList | filter:filter">
-                <td data-th="SNo">{{$index+1}} </td>
+            <tr ng-if="List.placesList" ng-repeat="data in List.placesListChunk | filter:filter">
+                <td data-th="SNo">{{$index+1+((List.currentPage-1)*List.pageLimit)}} </td>
                 <td data-th="Date"> {{data.name}} </td>
                 <td data-th="Investment type">{{data.country}}</td>
                 <td data-th="Scheme">{{data.state}}</td>
                 <td data-th="Folio No">{{data.city}}</td>
-                
                 <td data-th="Action">
                     <button class="btn" ng-click="List.showAction(data.unique_id)">Show Details</button>
                 </td>
             </tr>
         </tbody>
     </table>
-    
+    <div class="col-md-12" ng-if="List.listLength>0">
+        <div class="total-data pull-left"><span>Showing</span>
+            <select ng-change="List.pageLimitListChange(List.pageLimit)" ng-model="List.pageLimit"
+             ng-options='value as value for value in List.pageLimitDropDownList'>
+            </select>
+            <span>of</span>
+            <span class="">{{List.listLength}}</span>
+        </div>
+        <ul uib-pagination total-items="List.listLength" ng-model="List.currentPage" max-size="5" items-per-page="List.pageLimit" class="pagination-sm pull-right pagination" boundary-link-numbers="true" previous-text="&lsaquo;" next-text="&rsaquo;" ng-change="List.initActivityList()" rotate="false">
+        </ul>
     </div>
 </section>
