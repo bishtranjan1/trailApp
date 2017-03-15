@@ -32,7 +32,6 @@
             vm.currentPage = 1;
             vm.pageIndex = 0;
             vm.pageLimit = parseInt(limit);
-            console.log("pageLimit",vm.pageLimit)
             generate();
         };
         vm.initActivityList = function() {
@@ -44,7 +43,6 @@
 
             var start = vm.pageIndex * vm.pageLimit;
             var end = start + vm.pageLimit;
-            console.log(start,end)
             vm.placesListChunk=[];
             vm.placesListChunk = vm.placesList.slice(start, end);
         }
